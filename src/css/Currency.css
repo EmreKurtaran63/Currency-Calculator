@@ -1,0 +1,118 @@
+*,
+*::after,
+*::before {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: 0px;
+}
+
+body {
+    background-image: url(../images/Background.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.Container {
+    width: 550px;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 20px;
+
+}
+
+.baslik {
+    background-color: darkorange;
+    color: white;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.currency-area {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+}
+
+.from-currency-textarea {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    border: 0px;
+    text-align: center;
+    transition: all 0.1s ease-in-out;
+}
+
+.from-currency-textarea:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 5px white;
+}
+
+.to-currency-textarea {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    border: 0px;
+    text-align: center;
+    transition: all 0.1s ease-in-out;
+}
+.to-currency-textarea:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 5px white;
+}
+
+.from-currency {
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    border: 0px;
+    text-align: center;
+    cursor:pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.from-currency:hover{
+     transform: scale(1.1);
+    box-shadow: 0px 0px 5px white;
+}
+
+.to-currency {
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    border: 0px;
+    text-align: center;
+    cursor:pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.to-currency:hover{
+     transform: scale(1.1);
+    box-shadow: 0px 0px 5px white;
+}
+
+.button{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border: 0px;
+    background: darkorange;
+    color: white;
+    margin-top: 40px;
+    cursor:pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.button:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 0px 5px darkorange;
+}

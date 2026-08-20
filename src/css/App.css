@@ -1,0 +1,15 @@
+*,*::after,*::before{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: 0px;
+}
+
+body{
+  background-image: url(../images/Background.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
