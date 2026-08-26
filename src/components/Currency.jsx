@@ -1,9 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../css/Currency.css";
 import { BsArrowRightSquareFill } from "react-icons/bs";
 import { RiArrowRightDoubleFill } from "react-icons/ri";
+import axios from 'Axios';
+
+
+
+const Base_URL = "https://api.freecurrencyapi.com/v1/latest";
+const API_Key = "fca_live_nPPRwspAZRw7QXPGNfOS4bSIRhJN1iJGPCFG9ULH";
 
 function Currency() {
+
+    let [amount, setAmount] = useState(0);
+    let [fromCurrency, setFromCurrency] = useState("USD");
+    let [toCurrency, setToCurrency] = useState("TRY");
+    let [result, setResult] = useState(0);
+
+
+    const Exchanced = async () => {
+        /*console.log(amount);
+        console.log(fromCurrency);
+        console.log(toCurrency);
+        console.log(result);*/
+
+        const response = await axios.get(`${Base_URL}?apikey=${API_Key}&base_currency=${fromCurrency}`);
+        let resResult = response.data.data[toCurrency] * amount;
+        setResult(resResult.toFixed(2));
+        console.log(resResult.toFixed(2));
+
+    }
+
+
     return (
         <div className='Container'>
             <div className='baslik'>
@@ -11,27 +38,27 @@ function Currency() {
             </div>
 
             <div className='currency-area'>
-                <input type='number' className='from-currency-textarea'></input>
+                <input type='number' onChange={(e) => { setAmount(e.target.value) }} className='from-currency-textarea'></input>
 
-                <select className='from-currency'>
-                    <option >Dolar</option>
+                <select className='from-currency' onChange={(e) => { setFromCurrency(e.target.value) }}>
                     <option >USD</option>
-                    <option >TR</option>
+                    <option >EUR</option>
+                    <option >TRY</option>
                 </select>
 
-                <RiArrowRightDoubleFill style={{color:"white", margin:"auto",fontSize:"25px",fontWeight:"bolder"}}/>
+                <RiArrowRightDoubleFill style={{ color: "white", margin: "auto", fontSize: "25px", fontWeight: "bolder" }} />
 
-                <select className='to-currency'>
-                    <option >TR</option>
-                    <option >Dolar</option>
+                <select className='to-currency' onChange={(e) => { setToCurrency(e.target.value) }}>
+                    <option >TRY</option>
                     <option >USD</option>
+                    <option >EUR</option>
                 </select>
 
-                <input type='number' className='to-currency-textarea'></input>
+                <input type='text' readOnly value={result}  className='to-currency-textarea'></input>
             </div>
 
             <div>
-                <button className='button'><h3>Hesapla</h3></button>
+                <button className='button' onClick={() => { Exchanced() }}><h3>Hesapla</h3></button>
             </div>
         </div>
     )

@@ -14,8 +14,8 @@ body {
 }
 
 .Container {
-    width: 550px;
-    height: 300px;
+    min-width: 550px;
+    min-height: 300px;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 25px;
     display: flex;
@@ -65,6 +65,7 @@ body {
     text-align: center;
     transition: all 0.1s ease-in-out;
 }
+
 .to-currency-textarea:hover {
     transform: scale(1.1);
     box-shadow: 0px 0px 5px white;
@@ -76,12 +77,12 @@ body {
     border-radius: 10px;
     border: 0px;
     text-align: center;
-    cursor:pointer;
+    cursor: pointer;
     transition: all 0.1s ease-in-out;
 }
 
-.from-currency:hover{
-     transform: scale(1.1);
+.from-currency:hover {
+    transform: scale(1.1);
     box-shadow: 0px 0px 5px white;
 }
 
@@ -91,28 +92,51 @@ body {
     border-radius: 10px;
     border: 0px;
     text-align: center;
-    cursor:pointer;
+    cursor: pointer;
     transition: all 0.1s ease-in-out;
 }
 
-.to-currency:hover{
-     transform: scale(1.1);
+.to-currency:hover {
+    transform: scale(1.1);
     box-shadow: 0px 0px 5px white;
 }
 
-.button{
+.button {
     width: 100px;
     height: 40px;
     border-radius: 10px;
+    margin-bottom: 20px;
     border: 0px;
     background: darkorange;
     color: white;
     margin-top: 40px;
-    cursor:pointer;
+    cursor: pointer;
     transition: all 0.1s ease-in-out;
 }
 
-.button:hover{
+.button:hover {
     transform: scale(1.1);
     box-shadow: 0px 0px 5px darkorange;
+}
+
+@media (max-width:550px) {
+    .Container {
+        min-width: 0px;
+        width: 300px;
+    }
+
+    .currency-area {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: all 0.1s ease-in-out;
+    }
+
+    .from-currency {
+        width: 100px;
+    }
+    .to-currency {
+        width: 100px;
+    }
 }
