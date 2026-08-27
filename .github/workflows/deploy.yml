@@ -27,7 +27,7 @@ jobs:
           npm run build
         env:
           # Secret'ı build sürecine enjekte ediyoruz:
-          VITE_API_KEY: ${{ secrets.VITE_FREECURRENCY_API_KEY }}
+          VITE_FREECURRENCY_API_KEY: ${{ secrets.VITE_FREECURRENCY_API_KEY }}
 
       # 4. Derlenen çıktıları (dist) Hostinger'daki hedef klasöre aktar
       - name: Deploy via FTP to Hostinger
