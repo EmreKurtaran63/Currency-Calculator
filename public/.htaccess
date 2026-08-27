@@ -1,7 +1,11 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /React_Projelerim/Currency/
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /React_Projelerim/Currency/index.html [L]
-</IfModule>
+# Alt klasördeki statik dosyaların doğrudan sunulmasına izin ver
+Options +FollowSymLinks -MultiViews
+RewriteEngine On
+
+# Dosya veya klasör gerçekten varsa direkt çalıştır (js, css, png vs.)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Yoksa index.html'e yönlendir
+RewriteRule ^ index.html [L]
