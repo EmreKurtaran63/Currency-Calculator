@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import "../css/Currency.css";
-import { BsArrowRightSquareFill } from "react-icons/bs";
 import { RiArrowRightDoubleFill } from "react-icons/ri";
-import axios from 'Axios';
+import axios from 'axios';
 
 
 
 const Base_URL = "https://api.freecurrencyapi.com/v1/latest";
-const API_Key = "fca_live_nPPRwspAZRw7QXPGNfOS4bSIRhJN1iJGPCFG9ULH";
+const API_Key = import.meta.env.VITE_FREECURRENCY_API_KEY;
 
 function Currency() {
 
@@ -18,10 +17,7 @@ function Currency() {
 
 
     const Exchanced = async () => {
-        /*console.log(amount);
-        console.log(fromCurrency);
-        console.log(toCurrency);
-        console.log(result);*/
+        console.log("Benim Anahtarım:", import.meta.env.VITE_FREECURRENCY_API_KEY);
 
         const response = await axios.get(`${Base_URL}?apikey=${API_Key}&base_currency=${fromCurrency}`);
         let resResult = response.data.data[toCurrency] * amount;
@@ -54,7 +50,7 @@ function Currency() {
                     <option >EUR</option>
                 </select>
 
-                <input type='text' readOnly value={result}  className='to-currency-textarea'></input>
+                <input type='text' readOnly value={result} className='to-currency-textarea'></input>
             </div>
 
             <div>
